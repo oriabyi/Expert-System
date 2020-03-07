@@ -3,11 +3,6 @@ import re
 from functools import reduce
 import operator
 
-class Arg:
-	def __init__(self, name, value=None):
-		self.name = name
-		self.value = value
-
 
 def parse_file(arg):
 	try:
@@ -65,13 +60,39 @@ def parse_and_validate(filename):
 	return data, args
 
 
-def perform_an_operation(operation, args_tfu):
-	...
+def perform_an_operation(operation, args):
+	if re.findall(r'[^A-Z^+<=> ]', operation):
+		print('Wrong operation')
+	print(operation)
+	while True:
+		...
+	#loop
+	# and ()
+	# !
+	# +
+	# |
+	# ^
+	# =>
+	# <=>
 
 
-def perform_operations(operations, args_tfu):
+def sort_operations(operations, args):
+	return operations
+	temp = []
+	while True:
+		...
+
+#operations[0][:operations[0].index(re.findall('=>', operations[0])[0])]
+
+def perform_operations(operations, args):
+	# operations = sort_operations(operations, [x for x in args.keys() if args[x] == False])
 	for operation in operations:
-		perform_an_operation(operation, args_tfu)
+		operation = operation.replace(' ', '')
+		if re.findall('<=>', operation):
+			perform_an_operation(operation[:operation.index(re.findall('<=>', operation)[0])], args)
+		else:
+			perform_an_operation(operation[:operation.index(re.findall('=>', operation)[0])], args)
+		perform_an_operation(operation, args)
 
 
 

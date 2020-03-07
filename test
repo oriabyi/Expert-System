@@ -1,0 +1,56 @@
+B => A
+D + E => B	
+G + H => F      
+I + J => G
+G => H
+
+L + M => K
+O + P => L + N
+N => M
+
+=DEIJOP
+
+?AFKP
+
+
+
+
+#=DEIJOP, AFKP is true.
+
+
+=DEIJOP
+
+D + E => B      B True
+B => A          A True !!!
+I + J => G      G True
+G => H          H True
+G + H => F      F True !!!
+O + P => L + N  L True
+                N True
+N => M          M True
+L + M => K      K True !!!
+
+##############################################
+
+
+D + E => B      B True
+B => A          A True !!!
+I + J => G      G True
+G => H          H True
+G + H => F      F True !!!
+
+
+
+
+L + M => K
+O => L + N
+N => M
+
+?K
+
+
+=DEIJP
+?AFKP
+
+
+#=DEIJP, AFP is true, K is false.
